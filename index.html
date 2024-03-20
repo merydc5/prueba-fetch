@@ -8,15 +8,23 @@
 </head>
 <body>
     <h1>prueba jeje</h1>
-
+    <ul></ul>
     <script>
+        const lista = document.querySelector("ul");
+
     //sin / xq estan en la misma carpeta
         fetch("prueba.txt")
         //no como json xq es un texto normal
         .then(respuesta => respuesta.text())
         .then(contenido => {
-            console.log(contenido);
+            //de aqui sale un string
+
+            contenido.split(",").sort().forEach( nombre => {
+            let item = document.createElement("li");
+            item.innerText = nombre;
+            lista.appendChild(item);
         });
+     });
 
 
     </script>
